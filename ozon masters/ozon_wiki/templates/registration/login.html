@@ -1,0 +1,45 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html land='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel='stylesheet' type='text/css' href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+    {% block styles %}{% endblock %} 
+
+{% comment %} 
+    <script type='text/javascript' src="{% static 'jquery/jquery-3.2.1.min.js'%}"></script>
+    <script type='text/javascript' src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script> {% endcomment %}
+    {% block scripts%}{% endblock %}
+</head>
+
+<body>
+<h1>Вход</h1>
+
+{% if next %}
+<p> good! </p>
+{% endif %} 
+<form action='{% url 'login' %}' method='post' required>{% csrf_token %}
+{{ form.username }}
+{{ form.password }}
+<input type='submit' value='login'>
+<input type='hidden' name='next' value='{{ next }}'>
+{% if form.errors %}
+<p>Неккоректный e-mail или пароль! Проверьте наличие @ozon.ru</p>
+{% endif %} 
+
+
+</form>
+
+
+</body>
+
+<style type="text/css">
+body {
+    background: url('{% static "core/images/сс.jpg" %}') no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+</html>

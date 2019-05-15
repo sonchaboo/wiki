@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html land='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel='stylesheet' type='text/css' href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+    <link rel='stylesheet' type='text/css' href="{% static 'bootstrap/css/bootstrap-theme.min.css'%}">
+    {% block styles %}{% endblock %}
+
+
+    <script type='text/javascript' src="{% static 'jquery/jquery-3.2.1.min.js'%}"></script>
+    <script type='text/javascript' src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
+    
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    {% block scripts%}{% endblock %}
+</head>
+
+<body background>
+    {% block nav %}
+        <nav class="navigation navbar navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'main' %}"><img id="brand-image" alt="Ozon Masters" src="{% static 'core/images/ozonru.png' %}"></a>
+            
+<div><a href="{% url "login" %}">Выйти</a></div>
+        </nav>
+    {% endblock %}
+    {% block content %}{% endblock %}
+</body>
+
+
+{% comment %} <footer>
+    2019
+</footer> {% endcomment %}
+<style type="text/css">
+body {
+    background: url('{% static "core/images/сс.jpg" %}') no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+</style>
+</html>

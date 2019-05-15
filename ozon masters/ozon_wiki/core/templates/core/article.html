@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/index.css"%}"> 
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class='row'>
+    
+        <div class='col-sm'>
+            <div class="card bg-light mb-3">
+                <div class="card-header"><h3>{{ articles.title }}</h3> <h5><a href="javascript:history.go(-1)">Назад</a></h5></div>
+                    <div class="card-body">
+                        <h5 class="card-title"><div class='topic-list'>
+                        <div class='topic-list__item'>
+                         <div>{% autoescape off %}{{ articles.body }}{% endautoescape%}</div>
+                    </div>
+                </div></h5>
+               
+            </div>
+        </div>
+    </div>
+
+        
+</div> 
+
+{% endblock %}
+

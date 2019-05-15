@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ozon Masters{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/index.css"%}"> 
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class='row'>
+            <div class='col-sm'>
+
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><h5>Категории</h5></div>
+            <div class="card-body">
+                <h5 class="card-title"><div class='topic-list'>
+                    {% for categ in categories %}
+                        <div class='topic-list__item'>
+                        <h5><a href="{% url "article_list" categ.pk %}">{{ categ.title }}</a></h5>
+                        </div>
+                    {% endfor %}
+                </div></h5>
+               
+            </div>
+            </div>
+            </div>
+
+        
+        </div> 
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ozon Masters{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/index.css"%}"> 
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    {% comment %} <div>{% autoescape off %}{{ categories.body }}{% endautoescape%}</div> {% endcomment %}
+        <div class='row'>
+            <div class='col-6 col-md-3'>
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><h5>{{categories.title}}</h5> <h5><a href="{% url "main" %}">Назад</a></h5></div> 
+            <div class="card-body">
+                <h5 class="card-title"><div class='topic-list'>
+                    {% for article in categories.article_set.all %}
+                        <div class='topic-list__item'>
+                        <h5><a href="{% url "article" article.pk %}">{{ article.title }}</a></h5>
+                        </div>
+                    {% endfor %}
+                </div></h5>
+               
+            </div>
+            </div>
+            </div>
+            <div class='col-12 col-md-9'>
+                     <div class="card bg-light mb-3">
+
+                    <div class="card-body">
+                        <h5 class="card-title"><div class='topic-list'>
+                        <div class='topic-list__item'>
+                          <div>{% autoescape off %}{{ categories.body }}{% endautoescape%}</div>
+                    </div>
+                </div></h5>
+               
+            </div>
+            </div>
+
+        
+        </div> 
+    </div>
+{% endblock %}

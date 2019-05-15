@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ozon Masters{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/index.css"%}"> 
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class='row'>
+            <div class='col-3'>
+
+
+                {% for oblast in oblasts %}
+                <div class='topic-list__item'>
+
+                    {% if oblast.title == "Обучение с учителем" %}
+
+                        <button class="btn btn-primary" data-toggle="collapse" href="#with">{{ oblast.title }}</button>
+                        <div class="collapse" id="with">
+                            <div class='well'>
+                                {% for categ in oblast.category_set.all %}
+                                    <h5><a href="{% url "article_list" categ.pk %}">{{ categ.title }}</a></h5>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if oblast.title == 'Обучение без учителя' %}
+
+                        <button class="btn btn-primary" data-toggle="collapse" href="#without">{{ oblast.title }}</button>
+                        <div class="collapse" id="without">
+                            <div class='well'>
+                                {% for categ in oblast.category_set.all %}
+                                    <h5><a href="{% url "article_list" categ.pk %}">{{ categ.title }}</a></h5>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if oblast.title == 'Теория вероятности' %}
+
+                        <button class="btn btn-primary" data-toggle="collapse" href="#tv">{{ oblast.title }}</button>
+                        <div class="collapse" id="tv">
+                            <div class='well'>
+                                {% for categ in oblast.category_set.all %}
+                                    <h5><a href="{% url "article_list" categ.pk %}">{{ categ.title }}</a></h5>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if oblast.title == 'Задачи' %}
+
+                        <button class="btn btn-primary" data-toggle="collapse" href="#ex">{{ oblast.title }}</button>
+                        <div class="collapse" id="ex">
+                            <div class='well'>
+                                {% for categ in oblast.category_set.all %}
+                                    <h5><a href="{% url "article_list" categ.pk %}">{{ categ.title }}</a></h5>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                </div>
+                {% endfor %}
+            </div>
+            <div class='col-6'>
+                <img src="{% static 'core/images/main.jpg' %}" width='500' alt="main">
+            </div>
+        </div> 
+    </div>
+
+    
+{% endblock %}
+
+{% comment %} <style type="text/css">
+
+  </style> {% endcomment %}

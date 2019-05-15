@@ -1,0 +1,56 @@
+.topic-list__item, .navigation {
+    margin-bottom: 20px;
+}
+
+/* Общий фон */
+/* body {
+    background: url('{% static "core/images/back.jpg" %}') no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+} */
+
+
+/* Главная страница */
+#oneyear, #twoyear {
+    /* background: white;
+    border: 4px double black;
+    padding: 20px;
+    margin: 30px 60px 30px 30px; */
+    background: #eaf2ff;
+    border: 4px double black;
+    /* padding-top: 10px;
+    margin: 20px;
+    margin-right: 30px;
+    max-width: 400px; */
+    word-wrap: break-word;
+    position: relative;
+}
+
+.addition {
+    margin: 30px 60px 30px 30px;
+}
+
+footer {
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+    background: white; /* Цвет фона */
+    color: grey; /* Цвет текста */
+    width: 100%; }/* Ширина слоя */
+
+#brand-image {
+    height: 50px;
+}
+
+.proba {
+    margin-top: 22px;
+}
+
+.t-block {
+    float: left;
+    background-color: white;
+    border: 4px double black;
+}
+
+.card { background-color: rgba(245, 245, 245, 0.4); }
+.card-header, .card-footer { opacity: 1}
