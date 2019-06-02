@@ -10,17 +10,17 @@ from core.models import Oblast, Category, Article
 
 
 def main(request):
-    oblasts = Oblast.objects.all().annotate()
-    categories = Category.objects.all().annotate()
+    oblasts = Oblast.objects.all()
+    categories = Category.objects.all()
+    articles = Article.objects.all()
 
-    q = request.GET.get('q')
-    if q is not None:   
-        oblasts = oblasts.filter(title__icontains=q)
+
 
 
     return render(request, 'core/main.html', context={
         'oblasts': oblasts,
-        'categories': categories
+        'categories': categories,
+        'articles': articles
     })
 
 def categ_list(request, pk):
@@ -57,26 +57,12 @@ def article(request, pk3):
         'categories': categories,
             })
 
-# def topic_details2(request, pk2):
-#     try:
-#         topic2 = Topic.objects.get(pk=pk2)
-#     except Topic.DoesNotExist:
-#         raise Http404
-#     return render(request, 'core/topic_details2.html', context={
-#         'topic2': topic2
-#     })
+def search(request):
 
-# def teacher_list(request):
-#     teachers = Teacher.objects.all().annotate()
-#     return render(request, 'core/teacher_list.html', context={
-#         'teachers': teachers
-#     })
-
-# def teacher_details(request, pk3):
-#     try:
-#         teacher = Teacher.objects.get(pk=pk3)
-#     except Teacher.DoesNotExist:
-#         raise Http404
-#     return render(request, 'core/teacher_details.html', context={
-#         'teacher': teacher
-#     })
+    articles = Article.objects.all()
+    q = request.GET.get('q')
+    if q is not None:   
+        articles = articles.filter(title__icontains=q)
+    return render(request, 'core/search.html', context={
+        'articles': articles,
+        })

@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
-from core.views import main, categ_list, article_list, article
+from core.views import main, categ_list, article_list, article, search
 
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
     # path('teachers/', teacher_list, name='teacher_list'),
     path('article_list/<int:pk2>/', article_list, name='article_list'),
     path('articles/<int:pk3>/', article, name='article'),
+    path('search/', search, name='search'),
     # path('news/', news, name='news'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     # path('login/', auth_views.LoginView.as_view()),
